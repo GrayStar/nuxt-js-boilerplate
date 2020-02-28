@@ -48,6 +48,8 @@ module.exports = {
 		'@nuxtjs/dotenv',
 		// Doc: https://github.com/microcipcip/cookie-universal
 		'cookie-universal-nuxt',
+		// Doc https://github.com/egoist/styled-vue
+		'styled-vue/nuxt',
 	],
 	/*
 	 ** Build configuration

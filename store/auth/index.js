@@ -17,15 +17,15 @@ export const mutations = {
 	[AUTH_MUTATIONS.SET_USER](state, payload) {
 		state.user = payload;
 	},
-	[AUTH_MUTATIONS.SET_ACCESS_TOKEN](state, payload) {
-		state.accessToken = payload;
-	},
 };
 
 export const actions = {
 	[AUTH_ACTIONS.LOGIN]({ commit }) {
 		const accessToken = 'xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx';
-		const user = { title: 'Fake User' };
+		const user = {
+			title: 'John Doe',
+			email: 'johndoe@gmail.com',
+		};
 
 		commit(AUTH_MUTATIONS.SET_USER, user);
 
