@@ -48,6 +48,7 @@ class HttpClient {
 
 	abortRequest(requestId) {
 		const request = this._requests[requestId];
+
 		if (request) {
 			request.abort();
 		}
@@ -96,17 +97,14 @@ class HttpClient {
 				},
 				url: requestConfig.url,
 				cancelToken: source.token,
+				...(requestConfig.body ? { data: requestConfig.body } : {}),
 			};
-			if (requestConfig.body) {
-				orchestratedRequest.config.data = requestConfig.body;
-			}
 
 			this._requests[orchestratedRequest.requestId] = orchestratedRequest;
 
 			const data = await this._fetch(orchestratedRequest.config);
 
 			orchestratedRequest.requestComplete = true;
-
 			delete this._requests[orchestratedRequest.requestId];
 
 			return data;
