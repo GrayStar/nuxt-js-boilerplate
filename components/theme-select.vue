@@ -1,5 +1,5 @@
 <template>
-	<header>
+	<div v-if="dev">
 		<b-container>
 			<b-row>
 				<p>Theme Select: {{ _themeName }}</p>
@@ -13,7 +13,7 @@
 				</b-button>
 			</b-row>
 		</b-container>
-	</header>
+	</div>
 </template>
 
 <script>
@@ -22,6 +22,11 @@ import { THEME_NAMESPACE, THEME_ACTIONS } from '@/store/theme';
 
 export default {
 	name: 'ThemeSelect',
+	data() {
+		return {
+			dev: process.env.NODE_ENV !== 'production',
+		};
+	},
 	computed: {
 		...mapState(THEME_NAMESPACE, ['_themeName']),
 	},

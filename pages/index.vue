@@ -65,7 +65,7 @@ export default {
 				const { results } = await this.pokemonRequest.fetch();
 				this.pokemon = results;
 			} catch (error) {
-				alert(error);
+				alert(error.message);
 			}
 		},
 		handleAbortButtonClick() {
